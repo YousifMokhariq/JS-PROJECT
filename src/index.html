@@ -5,28 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
 </head>
-<body class="bg-slate-500">
-  <div class="flex justify-center">
-    <input id="input" type="text"  class="pl-2 mt-32"/>
-    <button id="sub" class="pl-2 mt-32 text-white text-xl">Submit</button>
-    <button id="del" class="pl-2 mt-32 text-white text-xl">Delete</button>
+<body>
+  <div class="text-center text-xl font-semibold">
+    Vowel Letters: (A,E,I,O,U) <br>
+    <input type="text" id="input" placeholder="place text here.." class="bg-zinc-200 mt-3 p-1 rounded-md">
+    <button id="submit" class="inline-block bg-zinc-200 p-1 rounded-sm">Submit</button> <br>
+    <h2 id="display" class="mt-10"></h2>
   </div>
-
-  <div class="flex justify-center mt-14 text-3xl text-white uppercase">
-    <h3 id="display"></h3>
-  </div>
-
 </body>
 <script>
-  var myArr = []
-  document.getElementById("sub").addEventListener("click",function(){ 
-    var txt = document.getElementById("input").value
-    myArr.push(txt)
-    document.getElementById("display").innerHTML = myArr.join(", ")
-  })
-  document.getElementById("del").addEventListener("click",function(){ 
-    myArr.pop()
-    document.getElementById("display").innerHTML = myArr.join(", ")
+  document.getElementById("submit").addEventListener("click",function(){
+    var text = document.getElementById("input").value 
+     for(var x of text){
+      var lowerdCase = x.toLowerCase()
+      if(lowerdCase != "a" && lowerdCase != "e" && lowerdCase != "i" && lowerdCase != "o" && lowerdCase != "u"){
+        document.getElementById("display").innerHTML += `${x} <br>`
+      }
+    }
   })
 </script>
 </html>
